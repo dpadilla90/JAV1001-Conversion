@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
                 "cup" -> userInput?.times(convcuptol)
                 else -> null
             }
-
+            //Display the result
             outputTextView.text = conversionResult?.toString() ?: "Invalid value or conversion"
         }
     }
