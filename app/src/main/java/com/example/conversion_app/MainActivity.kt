@@ -46,7 +46,6 @@ class MainActivity : AppCompatActivity() {
             // Retrieve user input value
             val userInput = inputEditText.text.toString().toDoubleOrNull()
 
-            // Retrieve the selected conversion unit
 
                 // Perform the conversion based on the selected conversion unit and display the result
             val conversionResult = when (conversionSpinner.selectedItem.toString()) {

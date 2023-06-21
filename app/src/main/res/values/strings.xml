@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_title">Conversion App</string>
+    <string name="app_name">Conversion App</string>
     <string name="convert_button">Convert</string>
     <string name="result">Result of conversion</string>
+    <string name="hint">Enter a value to convert</string>
     <string-array name="conversion_units">
         <item>km</item>
         <item>mi</item>
