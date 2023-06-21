@@ -1,40 +1,76 @@
-package com.example.quizzer
+package com.example.conversion_app
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
+import android.widget.EditText
+import android.widget.Spinner
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var trueButton: Button
-    private lateinit var falseButton: Button
+    private lateinit var inputEditText: EditText
+    private lateinit var conversionSpinner: Spinner
+    private lateinit var convertButton: Button
+    private lateinit var outputTextView: TextView
+
+    // Creating variables to store conversion values
+    private val convkmtomiles = 0.62
+    private val convmilestokm = 1.61
+    private val convcmtoin= 0.39
+    private val convintocm=2.54
+    private val convkgtolb=2.2
+    private val convlbtokg=0.45
+    private val convgtooz=0.04
+    private val convoztog=28.35
+    private val convltocup=4.17
+    private val convcuptol=0.24
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //'R' is a class in Android that contains the definitions for all the recources
-        //of our application. In this. R.id.ture_button -> a button with the id "true_button"
-        //that is defined in the layout file(specifically activity_main.xml)
+        // Initialize views
+        inputEditText = findViewById(R.id.inputEditText)
+        conversionSpinner = findViewById(R.id.conversionSpinner)
+        convertButton = findViewById(R.id.convertButton)
+        outputTextView = findViewById(R.id.outputTextView)
 
-        trueButton = findViewById(R.id.true_button)
-        falseButton = findViewById(R.id.false_button)
-
-        trueButton.setOnClickListener {
-            Toast.makeText(
-                this,
-                R.string.correct_toast,
-                Toast.LENGTH_SHORT
-            ).show()
+                // Set click listener for convertButton
+                convertButton.setOnClickListener {
+            performConversion()
         }
-        falseButton.setOnClickListener {
-            Toast.makeText(
-                this,
-                R.string.incorrect_toast,
-                Toast.LENGTH_SHORT
-            ).show()
+
+
+    }
+            private fun performConversion() {
+            // Retrieve user input value
+            val userInput = inputEditText.text.toString().toDoubleOrNull()
+
+            // Retrieve the selected conversion unit
+
+                // Perform the conversion based on the selected conversion unit and display the result
+            val conversionResult = when (conversionSpinner.selectedItem.toString()) {
+                "km" -> userInput?.times(convkmtomiles)
+                "mi" -> userInput?.times(convmilestokm)
+                "cm" -> userInput?.times(convcmtoin)
+                "in" -> userInput?.times(convintocm)
+                "kg" -> userInput?.times(convkgtolb)
+                "lb" -> userInput?.times(convlbtokg)
+                "g" -> userInput?.times(convgtooz)
+                "oz" -> userInput?.times(convoztog)
+                "l" -> userInput?.times(convltocup)
+                "cup" -> userInput?.times(convcuptol)
+                else -> null
+            }
+
+            outputTextView.text = conversionResult?.toString() ?: "Invalid value or conversion"
         }
     }
 
 
-}
+
+
+
+
+
+

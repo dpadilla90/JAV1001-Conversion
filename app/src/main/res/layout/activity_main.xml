@@ -38,20 +38,20 @@
             android:id="@+id/conversionSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/conversion_types" />
+            android:entries="@array/conversion_units" />
 
         <Button
             android:id="@+id/convertButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Convert" />
+            android:text="@string/convert_button" />
 
         <TextView
             android:id="@+id/outputTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
-            android:text="Conversion result will appear here"
+            android:text="@string/result"
             android:textSize="18sp"
             android:textStyle="bold" />
 
