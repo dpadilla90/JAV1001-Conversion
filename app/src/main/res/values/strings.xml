@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Conversion-App</string>
+    <string name="app_title">Conversion App</string>
+    <string name="question_text">Please add the quantity to convert and select a unit</string>
+    <string name="conversion_types">True</string>
+    <string name="false_button">False</string>
+    <string name="correct_toast">Congratulations! That is the correct toast.</string>
+    <string name="incorrect_toast">Sorry, that is not correct</string>
 </resources>
