@@ -1,19 +1,29 @@
 <resources>
     <string name="app_name">Conversion App</string>
+    <string name="layout_length">Length Conversion</string>
+    <string name="layout_weight">Weight Conversion</string>
+    <string name="layout_volume">Volume Conversion</string>
     <string name="convert_button">Convert</string>
     <string name="result">Result of conversion</string>
     <string name="hint">Enter a value to convert</string>
-    <string-array name="conversion_units">
+    <string-array name="conversion_units_length">
         <item>km to miles</item>
         <item>mi to km</item>
         <item>cm to in</item>
         <item>in to cm</item>
+
+    </string-array>
+    <string-array name="conversion_units_volume">
+        <item>l to cup</item>
+        <item>cup to l</item>
+    </string-array>
+    <string-array name="conversion_units_weight">
+
         <item>kg to lb</item>
         <item>lb to kg</item>
         <item>g to oz</item>
         <item>oz to g</item>
-        <item>l to cup</item>
-        <item>cup to l</item>
+
     </string-array>
 
 </resources>

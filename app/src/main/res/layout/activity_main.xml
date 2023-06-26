@@ -10,7 +10,6 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary">
 
-
         <TextView
             android:id="@+id/toolbarTitle"
             android:layout_width="wrap_content"
@@ -29,50 +28,39 @@
         android:orientation="vertical"
         android:gravity="center">
 
-
-        <EditText
-            android:id="@+id/inputEditText"
+        <!-- Add a container for length conversion view -->
+        <FrameLayout
+            android:id="@+id/lengthConversionContainer"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="@string/hint"
-            android:autofillHints="number"
-            android:inputType="numberDecimal"
-            android:layout_marginBottom="16dp"
-            android:gravity="center"/>
+            android:layout_height="wrap_content">
 
-        <Spinner
-            android:id="@+id/conversionSpinner"
+            <!-- Include the layout for length conversion -->
+            <include layout="@layout/length_conversion_layout" />
+
+        </FrameLayout>
+
+        <!-- Add a container for volume conversion view -->
+        <FrameLayout
+            android:id="@+id/volumeConversionContainer"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:entries="@array/conversion_units"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            />
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/convertButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/convert_button"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"/>
+            <!-- Include the layout for volume conversion -->
+            <include layout="@layout/volume_conversion_layout" />
 
-        <TextView
-            android:id="@+id/outputTextView"
+        </FrameLayout>
+
+        <!-- Add a container for weight conversion view -->
+        <FrameLayout
+            android:id="@+id/weightConversionContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:text="@string/result"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"/>
+            android:layout_height="wrap_content">
 
+            <!-- Include the layout for weight conversion -->
+            <include layout="@layout/weight_conversion_layout" />
 
+        </FrameLayout>
 
     </LinearLayout>
-
-
 
 </LinearLayout>

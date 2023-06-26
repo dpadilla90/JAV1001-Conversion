@@ -8,81 +8,141 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var inputEditText: EditText
-    private lateinit var conversionSpinner: Spinner
-    private lateinit var convertButton: Button
-    private lateinit var outputTextView: TextView
+    // Length conversion variables
+    private lateinit var lengthInputEditText: EditText
+    private lateinit var lengthConversionSpinner: Spinner
+    private lateinit var lengthConvertButton: Button
+    private lateinit var lengthOutputTextView: TextView
+
+    // Volume conversion variables
+    private lateinit var volumeInputEditText: EditText
+    private lateinit var volumeConversionSpinner: Spinner
+    private lateinit var volumeConvertButton: Button
+    private lateinit var volumeOutputTextView: TextView
+
+    // Weight conversion variables
+    private lateinit var weightInputEditText: EditText
+    private lateinit var weightConversionSpinner: Spinner
+    private lateinit var weightConvertButton: Button
+    private lateinit var weightOutputTextView: TextView
 
     // Creating variables to store conversion values
     private val convkmtomiles = 0.62
     private val convmilestokm = 1.61
-    private val convcmtoin= 0.39
-    private val convintocm=2.54
-    private val convkgtolb=2.2
-    private val convlbtokg=0.45
-    private val convgtooz=0.04
-    private val convoztog=28.35
-    private val convltocup=4.22
-    private val convcuptol=0.24
+    private val convcmtoin = 0.39
+    private val convintocm = 2.54
+    private val convkgtolb = 2.2
+    private val convlbtokg = 0.45
+    private val convgtooz = 0.04
+    private val convoztog = 28.35
+    private val convltocup = 4.22
+    private val convcuptol = 0.24
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Initialize views
-        inputEditText = findViewById(R.id.inputEditText)
-        conversionSpinner = findViewById(R.id.conversionSpinner)
-        convertButton = findViewById(R.id.convertButton)
-        outputTextView = findViewById(R.id.outputTextView)
+        // Initialize views for length conversions
+        lengthConversionSpinner = findViewById(R.id.lengthConversionSpinner)
+        lengthConvertButton = findViewById(R.id.lengthConvertButton)
+        lengthOutputTextView = findViewById(R.id.lengthOutputTextView)
 
-                // Set click listener for convertButton
-                convertButton.setOnClickListener {
-            performConversion()
+        // Set click listener for lengthConvertButton
+        lengthConvertButton.setOnClickListener {
+            performLengthConversion()
         }
 
+        // Initialize views for volume conversions
+        volumeConversionSpinner = findViewById(R.id.volumeConversionSpinner)
+        volumeConvertButton = findViewById(R.id.volumeConvertButton)
+        volumeOutputTextView = findViewById(R.id.volumeOutputTextView)
 
-    }
-            private fun performConversion() {
-            // Retrieve user input value
-            val userInput = inputEditText.text.toString().toDoubleOrNull()
+        // Set click listener for volumeConvertButton
+        volumeConvertButton.setOnClickListener {
+            performVolumeConversion()
+        }
 
+        // Initialize views for weight conversions
+        weightConversionSpinner = findViewById(R.id.weightConversionSpinner)
+        weightConvertButton = findViewById(R.id.weightConvertButton)
+        weightOutputTextView = findViewById(R.id.weightOutputTextView)
 
-                // Perform the conversion based on the selected conversion unit and display the result
-            val conversionResult = when (conversionSpinner.selectedItem.toString()) {
-                "km to miles" -> userInput?.times(convkmtomiles)
-                "mi to km" -> userInput?.times(convmilestokm)
-                "cm to in" -> userInput?.times(convcmtoin)
-                "in to cm" -> userInput?.times(convintocm)
-                "kg to lb" -> userInput?.times(convkgtolb)
-                "lb to kg" -> userInput?.times(convlbtokg)
-                "g to oz" -> userInput?.times(convgtooz)
-                "oz to g" -> userInput?.times(convoztog)
-                "l to cup" -> userInput?.times(convltocup)
-                "cup to l" -> userInput?.times(convcuptol)
-                else -> null
-            }
-
-            // Format the output string based on the selected conversion unit
-            val outputString = when (conversionSpinner.selectedItem.toString()) {
-                "km to miles" -> "The conversion to miles is ${conversionResult ?: ""}"
-                "mi to km" -> "The conversion to km is ${conversionResult ?: ""}"
-                "cm to in" -> "The conversion to inches is ${conversionResult ?: ""}"
-                "in to cm" -> "The conversion to cm is ${conversionResult ?: ""}"
-                "kg to lb" -> "The conversion to lb is ${conversionResult ?: ""}"
-                "lb to kg" -> "The conversion to kg is ${conversionResult ?: ""}"
-                "g to oz" -> "The conversion to oz is ${conversionResult ?: ""}"
-                "oz to g" -> "The conversion to g is ${conversionResult ?: ""}"
-                "l to cup" -> "The conversion to cup is ${conversionResult ?: ""}"
-                "cup to l" -> "The conversion to l is ${conversionResult ?: ""}"
-                else -> "Invalid value or conversion"
-            }
-            // Display the result
-            outputTextView.text = outputString
+        // Set click listener for weightConvertButton
+        weightConvertButton.setOnClickListener {
+            performWeightConversion()
         }
     }
 
+    private fun performLengthConversion() {
+        val userInput = lengthInputEditText.text.toString().toDoubleOrNull()
 
+        val conversionResult = when (lengthConversionSpinner.selectedItem.toString()) {
+            "km to miles" -> userInput?.times(convkmtomiles)
+            "mi to km" -> userInput?.times(convmilestokm)
+            "cm to in" -> userInput?.times(convcmtoin)
+            "in to cm" -> userInput?.times(convintocm)
+            else -> null
+        }
 
+        val outputString = when (lengthConversionSpinner.selectedItem.toString()) {
+            "km to miles" -> "The conversion to miles is ${conversionResult ?: ""}"
+            "mi to km" -> "The conversion to kilometers is ${conversionResult ?: ""}"
+            "cm to in" -> "The conversion to inches is ${conversionResult ?: ""}"
+            "in to cm" -> "The conversion to centimeters is ${conversionResult ?: ""}"
+            else -> "Invalid value or conversion"
+        }
+
+        lengthOutputTextView.text = outputString
+    }
+
+    private fun performVolumeConversion() {
+        val userInput = volumeInputEditText.text.toString().toDoubleOrNull()
+
+        val conversionResult = when (volumeConversionSpinner.selectedItem.toString()) {
+            // Define the volume conversion cases and calculation logic
+            // Example cases:
+            "l to cup" -> userInput?.times(convltocup)
+            "cup to l" -> userInput?.div(convcuptol)
+            else -> null
+        }
+
+        val outputString = when (volumeConversionSpinner.selectedItem.toString()) {
+            // Define the output strings for each conversion case
+            // Example cases:
+            "l to cup" -> "The conversion to cup is ${conversionResult ?: ""}"
+            "cup to l" -> "The conversion to liters is ${conversionResult ?: ""}"
+            else -> "Invalid value or conversion"
+        }
+
+        volumeOutputTextView.text = outputString
+    }
+
+    private fun performWeightConversion() {
+        val userInput = weightInputEditText.text.toString().toDoubleOrNull()
+
+        val conversionResult = when (weightConversionSpinner.selectedItem.toString()) {
+            // Define the weight conversion cases and calculation logic
+            // Example cases:
+            "kg to lb" -> userInput?.times(convkgtolb)
+            "lb to kg" -> userInput?.div(convlbtokg)
+            "g to oz" -> userInput?.times(convgtooz)
+            "oz to g" -> userInput?.div(convoztog)
+            else -> null
+        }
+
+        val outputString = when (weightConversionSpinner.selectedItem.toString()) {
+            // Define the output strings for each conversion case
+            // Example cases:
+            "kg to lb" -> "The conversion to pounds is ${conversionResult ?: ""}"
+            "lb to kg" -> "The conversion to kilograms is ${conversionResult ?: ""}"
+            "g to oz" -> "The conversion to ounces is ${conversionResult ?: ""}"
+            "oz to g" -> "The conversion to grams is ${conversionResult ?: ""}"
+            else -> "Invalid value or conversion"
+        }
+
+        weightOutputTextView.text = outputString
+    }
+}
 
 
 

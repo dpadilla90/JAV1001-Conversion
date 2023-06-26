@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Add views specific to volume conversion -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/layout_weight"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+
+        <EditText
+            android:id="@+id/inputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/hint"
+            android:autofillHints="number"
+            android:inputType="numberDecimal"
+
+            android:gravity="center"/>
+
+        <Spinner
+            android:id="@+id/weightConversionSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:entries="@array/conversion_units_weight"
+
+            />
+
+        <Button
+            android:id="@+id/weightConvertButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/convert_button"
+            />
+
+        <TextView
+            android:id="@+id/weightOutputTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="@string/result"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"
+           />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
