@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private val convlbtokg=0.45
     private val convgtooz=0.04
     private val convoztog=28.35
-    private val convltocup=4.17
+    private val convltocup=4.22
     private val convcuptol=0.24
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,20 +49,35 @@ class MainActivity : AppCompatActivity() {
 
                 // Perform the conversion based on the selected conversion unit and display the result
             val conversionResult = when (conversionSpinner.selectedItem.toString()) {
-                "km" -> userInput?.times(convkmtomiles)
-                "mi" -> userInput?.times(convmilestokm)
-                "cm" -> userInput?.times(convcmtoin)
-                "in" -> userInput?.times(convintocm)
-                "kg" -> userInput?.times(convkgtolb)
-                "lb" -> userInput?.times(convlbtokg)
-                "g" -> userInput?.times(convgtooz)
-                "oz" -> userInput?.times(convoztog)
-                "l" -> userInput?.times(convltocup)
-                "cup" -> userInput?.times(convcuptol)
+                "km to miles" -> userInput?.times(convkmtomiles)
+                "mi to km" -> userInput?.times(convmilestokm)
+                "cm to in" -> userInput?.times(convcmtoin)
+                "in to cm" -> userInput?.times(convintocm)
+                "kg to lb" -> userInput?.times(convkgtolb)
+                "lb to kg" -> userInput?.times(convlbtokg)
+                "g to oz" -> userInput?.times(convgtooz)
+                "oz to g" -> userInput?.times(convoztog)
+                "l to cup" -> userInput?.times(convltocup)
+                "cup to l" -> userInput?.times(convcuptol)
                 else -> null
             }
-            //Display the result
-            outputTextView.text = conversionResult?.toString() ?: "Invalid value or conversion"
+
+            // Format the output string based on the selected conversion unit
+            val outputString = when (conversionSpinner.selectedItem.toString()) {
+                "km to miles" -> "The conversion to miles is ${conversionResult ?: ""}"
+                "mi to km" -> "The conversion to km is ${conversionResult ?: ""}"
+                "cm to in" -> "The conversion to inches is ${conversionResult ?: ""}"
+                "in to cm" -> "The conversion to cm is ${conversionResult ?: ""}"
+                "kg to lb" -> "The conversion to lb is ${conversionResult ?: ""}"
+                "lb to kg" -> "The conversion to kg is ${conversionResult ?: ""}"
+                "g to oz" -> "The conversion to oz is ${conversionResult ?: ""}"
+                "oz to g" -> "The conversion to g is ${conversionResult ?: ""}"
+                "l to cup" -> "The conversion to cup is ${conversionResult ?: ""}"
+                "cup to l" -> "The conversion to l is ${conversionResult ?: ""}"
+                else -> "Invalid value or conversion"
+            }
+            // Display the result
+            outputTextView.text = outputString
         }
     }
 
