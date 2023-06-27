@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity() {
     private val convoztog = 28.35
     private val convltocup = 4.22
     private val convcuptol = 0.24
+    private val convltogal = 0.26
+    private val convgaltol = 3.78
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -105,7 +107,9 @@ class MainActivity : AppCompatActivity() {
             // Define the volume conversion cases and calculation logic
             // Example cases:
             "l to cup" -> userInput?.times(convltocup)
-            "cup to l" -> userInput?.div(convcuptol)
+            "cup to l" -> userInput?.times(convcuptol)
+            "l to gal" -> userInput?.times(convltogal)
+            "gal to l" -> userInput?.times(convgaltol)
             else -> null
         }
 
@@ -114,6 +118,8 @@ class MainActivity : AppCompatActivity() {
             // Example cases:
             "l to cup" -> "The conversion to cup is ${conversionResult ?: ""}"
             "cup to l" -> "The conversion to liters is ${conversionResult ?: ""}"
+            "l to gal" -> "The conversion to gallons is ${conversionResult ?: ""}"
+            "gal to l" -> "The conversion to liters is ${conversionResult ?: ""}"
             else -> "Invalid value or conversion"
         }
 
@@ -127,9 +133,9 @@ class MainActivity : AppCompatActivity() {
             // Define the weight conversion cases and calculation logic
             // Example cases:
             "kg to lb" -> userInput?.times(convkgtolb)
-            "lb to kg" -> userInput?.div(convlbtokg)
+            "lb to kg" -> userInput?.times(convlbtokg)
             "g to oz" -> userInput?.times(convgtooz)
-            "oz to g" -> userInput?.div(convoztog)
+            "oz to g" -> userInput?.times(convoztog)
             else -> null
         }
 

@@ -22,45 +22,57 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
-
-        <!-- Add a container for length conversion view -->
-        <FrameLayout
-            android:id="@+id/lengthConversionContainer"
+        android:layout_height="match_parent">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
 
-            <!-- Include the layout for length conversion -->
-            <include layout="@layout/length_conversion_layout" />
+            <!-- Add a container for length conversion view -->
+            <FrameLayout
+                android:id="@+id/lengthConversionContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/frame_background"
+                >
 
-        </FrameLayout>
+                <!-- Include the layout for length conversion -->
+                <include layout="@layout/length_conversion_layout" />
 
-        <!-- Add a container for volume conversion view -->
-        <FrameLayout
-            android:id="@+id/volumeConversionContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            </FrameLayout>
 
-            <!-- Include the layout for volume conversion -->
-            <include layout="@layout/volume_conversion_layout" />
+            <!-- Add a container for volume conversion view -->
+            <FrameLayout
+                android:id="@+id/volumeConversionContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/frame_background"
+                >
 
-        </FrameLayout>
+                <!-- Include the layout for volume conversion -->
+                <include layout="@layout/volume_conversion_layout"
+                    />
 
-        <!-- Add a container for weight conversion view -->
-        <FrameLayout
-            android:id="@+id/weightConversionContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            </FrameLayout>
 
-            <!-- Include the layout for weight conversion -->
-            <include layout="@layout/weight_conversion_layout" />
+            <!-- Add a container for weight conversion view -->
+            <FrameLayout
+                android:id="@+id/weightConversionContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:background="@drawable/frame_background">
 
-        </FrameLayout>
+                <!-- Include the layout for weight conversion -->
+                <include layout="@layout/weight_conversion_layout" />
 
-    </LinearLayout>
+            </FrameLayout>
 
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

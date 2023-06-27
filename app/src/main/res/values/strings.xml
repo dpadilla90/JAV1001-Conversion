@@ -16,6 +16,8 @@
     <string-array name="conversion_units_volume">
         <item>l to cup</item>
         <item>cup to l</item>
+        <item>l to gal</item>
+        <item>gal to l</item>
     </string-array>
     <string-array name="conversion_units_weight">
 
