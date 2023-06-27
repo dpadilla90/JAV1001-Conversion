@@ -24,11 +24,11 @@
             android:id="@+id/weightInputEditText"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="@string/hint"
             android:autofillHints="number"
+            android:gravity="center"
+            android:hint="@string/hint"
             android:inputType="numberDecimal"
-
-            android:gravity="center"/>
+            android:textColorHint="#8D6E63" />
 
         <Spinner
             android:id="@+id/weightConversionSpinner"
