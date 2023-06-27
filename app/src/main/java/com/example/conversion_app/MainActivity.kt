@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
         lengthConversionSpinner = findViewById(R.id.lengthConversionSpinner)
         lengthConvertButton = findViewById(R.id.lengthConvertButton)
         lengthOutputTextView = findViewById(R.id.lengthOutputTextView)
+        lengthInputEditText = findViewById(R.id.lengthInputEditText)
 
         // Set click listener for lengthConvertButton
         lengthConvertButton.setOnClickListener {
@@ -56,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         volumeConversionSpinner = findViewById(R.id.volumeConversionSpinner)
         volumeConvertButton = findViewById(R.id.volumeConvertButton)
         volumeOutputTextView = findViewById(R.id.volumeOutputTextView)
+        volumeInputEditText = findViewById(R.id.volumeInputEditText)
 
         // Set click listener for volumeConvertButton
         volumeConvertButton.setOnClickListener {
@@ -66,6 +68,7 @@ class MainActivity : AppCompatActivity() {
         weightConversionSpinner = findViewById(R.id.weightConversionSpinner)
         weightConvertButton = findViewById(R.id.weightConvertButton)
         weightOutputTextView = findViewById(R.id.weightOutputTextView)
+        weightInputEditText = findViewById(R.id.weightInputEditText)
 
         // Set click listener for weightConvertButton
         weightConvertButton.setOnClickListener {
